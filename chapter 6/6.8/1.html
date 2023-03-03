@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function printNumbers(from, to) {
+        //     setInterval(() => {
+        //         if (from <= to) {
+        //             alert(from++)
+        //         }
+        //     }, 1000)
+
+        // }
+        // printNumbers(3, 8)
+
+        function printNumbers(from, to) {
+
+            setTimeout(function go() {
+                if (from <= to) alert(from++)
+                setTimeout(go, 1000)
+            }, 1000)
+        }
+        printNumbers(3, 8)
+    </script>
+</body>
+
+</html>

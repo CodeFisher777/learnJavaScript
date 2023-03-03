@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let printValue = (x) => {
+            return x * 2;
+        }
+
+
+
+        const cachingDecorator = (func) => {
+            let cache = new Map()
+            return function (x) {
+                if (cache.has(x)) {
+                    console.log('я беру кэш')
+                    return cache.get(x)
+                }
+                let result = func(x)
+                cache.set(x, result)
+                console.log('я беру не из кэш')
+                return result
+            }
+        }
+        printValue = cachingDecorator(printValue)
+        console.log(printValue(2))
+        console.log(printValue(2))
+        console.log(printValue(3))
+    </script>
+</body>
+
+</html>
